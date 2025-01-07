@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    // Features
+    "lib": ["ESNext", "DOM"],
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleDetection": "force",
+
+    // Module resolution
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+
+    // Path resolution
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "outDir": "build",
+
+    // Compiler options
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
+    "alwaysStrict": true,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "skipLibCheck": true
+  },
+  "include": ["src", "test", "scripts"]
+}
