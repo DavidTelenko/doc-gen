@@ -11,6 +11,7 @@
     "lint": "biome lint --write ./src",
     "format": "biome format --write ./src",
     "check": "biome check --write ./src",
+    "knip": "bunx knip",
     "start": "bun run ./src/index.ts"
   },
   "dependencies": {

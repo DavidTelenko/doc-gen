@@ -4,7 +4,7 @@ const parseTask = (task: unknown): TaskFile | undefined => {
   const { data, error } = taskFileSchema.safeParse(task);
 
   if (error) {
-    console.error(error);
+    console.error(error.format());
     return;
   }
 
