@@ -86,7 +86,7 @@ Soft skills:
     Non conflicting
 
 Hard skills:
-    NodeJs, C++, JS, Neovim
+    TS, C++, JS, Go, Lua, Neovim
 
 2025
 ```
