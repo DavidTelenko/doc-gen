@@ -110,7 +110,7 @@ place every CV in a document with the same name as a name of a participant.
 To use this app you need to follow this steps and prerequisites to start.
 
 1. Have a google account
-2. Have a [bun](https://bun.sh/) runtime installed on your machine.
+2. Have a [node](https://nodejs.org/en) runtime installed on your machine.
 3. [Create a google cloud project](https://developers.google.com/workspace/guides/create-project)
 4. Add Google Drive and Google Docs API's to it
 5. Follow this
@@ -149,6 +149,13 @@ To use this app you need to follow this steps and prerequisites to start.
       // child tasks that follows same structure
       {
         "name": "Child1", // name of the task
+        "permissions": [
+          // list of permissions for the file or directory
+          {
+            "email": "some_email@gmail.com", // valid gmail email
+            "role": "writer", // writer, reader, commenter
+          },
+        ],
         "replacements": [
           {
             "from": "CLIENT", // what text
@@ -170,9 +177,10 @@ To use this app you need to follow this steps and prerequisites to start.
 }
 ```
 
-> Note: for each subtask with no children a file with substitutions will be
-> created. For subtask with children the directory with this name will be
-> created. The example above will yield the following structure:
+> [!IMPORTANT]
+> For each subtask with no children a file with substitutions will be created.
+> For subtask with children the directory with this name will be created. The
+> example above will yield the following structure:
 
     Root
     ├──Child1.gdoc
@@ -181,9 +189,12 @@ To use this app you need to follow this steps and prerequisites to start.
 - Install dependencies and run
 
 ```bash
-bun install
-bun run start -- ./path/to/task.json
+npm i
+npm start -- ./path/to/task.json
 ```
+
+> [!NOTE]
+> Any other runtime is sufficient
 
 - You will be prompted to login into your account.
 - Wait until script finishes, and check your Google Drive.

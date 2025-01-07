@@ -1,4 +1,5 @@
 import { type TaskFile, taskFileSchema } from "@/schemas/task/file";
+import { readFile } from "node:fs/promises";
 
 const parseTask = (task: unknown): TaskFile | undefined => {
   const { data, error } = taskFileSchema.safeParse(task);
@@ -13,7 +14,9 @@ const parseTask = (task: unknown): TaskFile | undefined => {
 
 export const getTask = async () => {
   if (process.argv.length === 3) {
-    return parseTask(await Bun.file(process.argv[2]).json());
+    const content = await readFile(process.argv[2]);
+    const json = JSON.parse(content.toString());
+    return parseTask(json);
   }
 
   if (process.stdin.isTTY) {

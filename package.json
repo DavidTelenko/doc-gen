@@ -4,15 +4,12 @@
   "version": "1.0.0",
   "type": "module",
   "main": "./src/index.ts",
-  "imports": {
-    "#/*.ts": "./src/*.ts"
-  },
   "scripts": {
     "lint": "biome lint --write ./src",
     "format": "biome format --write ./src",
     "check": "biome check --write ./src",
-    "knip": "bunx knip",
-    "start": "bun run ./src/index.ts"
+    "knip": "npx knip",
+    "start": "tsx ./src/index.ts"
   },
   "dependencies": {
     "@google-cloud/local-auth": "^2.1.0",
@@ -21,7 +18,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "latest",
-    "@types/bun": "latest",
+    "@types/node": "latest",
+    "tsx": "^4.19.2",
     "typescript": "latest"
   }
 }
