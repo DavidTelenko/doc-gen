@@ -20,13 +20,13 @@ This app is not a hot fresh app for end user, just a neat script that does it's 
 - Create a task.json file anywhere in your system
 - Populate it with the following schema:
 
-```json
+```jsonc
 {
   "config": {
     "template": "id", // id of a template file
     "directory": "id", // id of a directory where files will be populated
     "caseSensitive": true, // global default for case sensitivity requirements (default false)
-    "dryRun": false // set to true if you want just to see what will be happening
+    "dryRun": false, // set to true if you want just to see what will be happening
   },
   "task": {
     // root task
@@ -34,12 +34,12 @@ This app is not a hot fresh app for end user, just a neat script that does it's 
     "replacements": [
       {
         "from": "YEAR", // what text
-        "to": "2025" // replace with what
+        "to": "2025", // replace with what
       },
       {
         "from": "AUTHOR",
-        "to": "David Telen'ko"
-      }
+        "to": "David Telen'ko",
+      },
     ],
     "subtasks": [
       // child tasks that follows same structure
@@ -48,21 +48,21 @@ This app is not a hot fresh app for end user, just a neat script that does it's 
         "replacements": [
           {
             "from": "CLIENT", // what text
-            "to": "Template User" // replace with what
-          }
-        ]
+            "to": "Template User", // replace with what
+          },
+        ],
       },
       {
         "name": "Child2", // name of the task
         "replacements": [
           {
             "from": "CLIENT", // what text
-            "to": "Template User 2" // replace with what
-          }
-        ]
-      }
-    ]
-  }
+            "to": "Template User 2", // replace with what
+          },
+        ],
+      },
+    ],
+  },
 }
 ```
 
