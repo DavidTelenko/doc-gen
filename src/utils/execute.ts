@@ -1,6 +1,6 @@
-import type { TaskConfig } from "@/schemas/task/config.ts";
-import type { TaskFile } from "@/schemas/task/file.ts";
-import type { Task } from "@/schemas/task/task.ts";
+import type { TaskConfig } from "@/schemas/config.ts";
+import type { TaskFile } from "@/schemas/file.ts";
+import type { Task } from "@/schemas/task.ts";
 import { utilities as googleUtilities } from "./google.ts";
 
 const dryUtilities = (_config: TaskConfig) => ({
@@ -30,7 +30,7 @@ export const execute = async ({ config, task }: TaskFile) => {
     : utilities[config.provider](config);
 
   const recurse = async (task: Task, template: string, directory: string) => {
-    if (!task.subtasks || task.subtasks?.length === 0) {
+    if (!task.subtasks?.length) {
       const response = await utils.copyTemplate(task, template, directory);
 
       if (!response.data.id) {

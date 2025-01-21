@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { taskShema } from "./task";
 import { taskConfigSchema } from "./config";
+import { taskShema } from "./task";
 
 export const taskFileSchema = z.object({
   config: taskConfigSchema,

@@ -1,7 +1,7 @@
-import { type TaskFile, taskFileSchema } from "@/schemas/task/file";
+import { type TaskFile, taskFileSchema } from "@/schemas/file";
 import { readFile } from "node:fs/promises";
 
-const parseTask = (task: unknown): TaskFile | undefined => {
+const verifyTask = (task: unknown): TaskFile | undefined => {
   const { data, error } = taskFileSchema.safeParse(task);
 
   if (error) {
@@ -16,7 +16,7 @@ export const getTask = async () => {
   if (process.argv.length === 3) {
     const content = await readFile(process.argv[2]);
     const json = JSON.parse(content.toString());
-    return parseTask(json);
+    return verifyTask(json);
   }
 
   if (process.stdin.isTTY) {
@@ -24,5 +24,5 @@ export const getTask = async () => {
     return;
   }
 
-  return parseTask(await process.stdin.reduce((a, e) => a + e, ""));
+  return verifyTask(await process.stdin.reduce((a, e) => a + e, ""));
 };

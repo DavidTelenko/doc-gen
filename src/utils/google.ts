@@ -1,7 +1,7 @@
 import type { Replacement } from "@/schemas/replacement.ts";
-import type { TaskConfig } from "@/schemas/task/config.ts";
-import type { Permission } from "@/schemas/task/permission.ts";
-import type { Task } from "@/schemas/task/task.ts";
+import type { TaskConfig } from "@/schemas/config.ts";
+import type { Permission } from "@/schemas/permission.ts";
+import type { Task } from "@/schemas/task.ts";
 import { google } from "googleapis";
 import { authorize } from "./auth.ts";
 

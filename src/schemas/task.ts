@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { replacementSchema } from "../replacement";
+import { replacementSchema } from "./replacement";
 import { permissionSchema } from "./permission";
 
 const baseTaskSchema = z.object({
